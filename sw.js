@@ -1,4 +1,4 @@
-const CACHE="flora-mwqvd18g";const ARQ=["./","index.html","manifest.webmanifest","logo.png","simbolo-96.png","icone-192.png","icone-512.png"];
+const CACHE="flora-mwr1aalu";const ARQ=["./","index.html","manifest.webmanifest","logo.png","simbolo-96.png","icone-192.png","icone-512.png"];
 self.addEventListener("install",e=>{e.waitUntil(caches.open(CACHE).then(c=>c.addAll(ARQ)).then(()=>self.skipWaiting()))});
 self.addEventListener("activate",e=>{e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim()))});
 const doCache=q=>caches.match(q,{ignoreSearch:true}).then(r=>r||(q.mode==="navigate"?caches.match("index.html"):undefined));
